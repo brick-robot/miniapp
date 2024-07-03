@@ -1,4 +1,3 @@
-/* styles.css */
 body {
     display: flex;
     flex-direction: column;
@@ -22,6 +21,7 @@ body {
     width: 100%;
     display: flex;
     overflow: hidden;
+    flex-direction: column;
 }
 
 .page {
@@ -88,4 +88,21 @@ body {
     font-size: 18px;
     margin: 10px 0;
     cursor: pointer;
+}
+
+#earn-list, #friends-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+#earn-list li, #friends-list li {
+    margin: 10px 0;
+}
+
+#earn-list li::before, #friends-list li::before {
+    content: '⭐';
+    margin-right: 10px;
 }
