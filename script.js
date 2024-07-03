@@ -32,8 +32,8 @@ function createFloatingScore(x, y) {
     scoreElement.style.position = 'absolute';
     scoreElement.style.left = `${x}px`;
     scoreElement.style.top = `${y}px`;
-    scoreElement.style.color = 'red';
-    scoreElement.style.fontSize = '24px';
+    scoreElement.style.color = 'white';
+    scoreElement.style.fontSize = '30px';
     scoreElement.style.fontWeight = 'bold';
     document.body.appendChild(scoreElement);
 
