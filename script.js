@@ -91,6 +91,7 @@ function startFarm() {
     document.getElementById('start-farm').style.display = 'none';
     document.getElementById('farm-info').style.display = 'block';
     updateFarmStatus();
+    farmInterval = setInterval(updateFarmStatus, 1000); // شروع به‌روزرسانی وضعیت فارم
 }
 
 function updateFarmStatus() {
@@ -103,6 +104,7 @@ function updateFarmStatus() {
         coinsEarned = totalCoins;
         clearInterval(farmInterval);
         document.getElementById('collect-coins').style.display = 'block';
+        document.getElementById('time-left').style.display = 'none'; // محو شدن زمان
     } else {
         const coinsPerMs = totalCoins / totalFarmTime;
         coinsEarned = coinsPerMs * elapsedTime;
@@ -132,6 +134,8 @@ function collectCoins() {
     localStorage.removeItem('coinsEarned');
     document.getElementById('farm-info').style.display = 'none';
     document.getElementById('start-farm').style.display = 'block';
+    document.getElementById('collect-coins').style.display = 'none'; // محو شدن دکمه collect
+    document.getElementById('time-left').style.display = 'block'; // نمایش زمان برای فارم بعدی
 }
 
 function checkFarmStatus() {
