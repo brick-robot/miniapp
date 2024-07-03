@@ -1,17 +1,23 @@
 // script.js
 let score = 0;
+let clicksLeft = 2000;
 
 function tapCircle(event) {
     event.preventDefault();
-    const touches = event.changedTouches;
-
-    for (let i = 0; i < touches.length; i++) {
-        score++;
-        document.getElementById('score').innerText = score;
-        createFloatingScore(touches[i].clientX, touches[i].clientY);
+    const touches = event.changedTouches ? event.changedTouches : [event];
+    
+    if (clicksLeft > 0) {
+        for (let i = 0; i < touches.length; i++) {
+            if (clicksLeft > 0) {
+                score++;
+                clicksLeft--;
+                document.getElementById('score').innerText = score;
+                document.getElementById('clicks').innerText = clicksLeft;
+                createFloatingScore(touches[i].clientX, touches[i].clientY);
+            }
+        }
+        shakeCircle();
     }
-
-    shakeCircle();
 }
 
 function createFloatingScore(x, y) {
@@ -40,3 +46,10 @@ function shakeCircle() {
         { x: 5, duration: 0.1, repeat: 5, yoyo: true }
     );
 }
+
+setInterval(() => {
+    if (clicksLeft < 2000) {
+        clicksLeft++;
+        document.getElementById('clicks').innerText = clicksLeft;
+    }
+}, 2000);

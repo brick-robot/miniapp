@@ -9,9 +9,12 @@
 <body>
     <div id="game-container">
         <h1>Tap the Circle</h1>
-        <div id="circle" ontouchstart="tapCircle(event)"></div>
+        <div id="circle" onclick="tapCircle(event)" ontouchstart="tapCircle(event)"></div>
         <div id="score-container">
             Score: <span id="score">0</span>
+        </div>
+        <div id="clicks-container">
+            Clicks Left: <span id="clicks">2000</span>/2000
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
