@@ -1,26 +1,46 @@
 /* styles.css */
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
     margin: 0;
+    overflow: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-#game-container {
-    text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+#app {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+.page {
+    min-width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page.active {
+    display: flex;
 }
 
 #circle {
-    width: 170px;
-    height: 170px;
-    background-color: rgb(245, 182, 8);
+    width: 200px;
+    height: 200px;
+    background-color: #db9c14d8;
+    border: 10px #bf8507d8 solid;
     border-radius: 50%;
     margin: 20px auto;
     cursor: pointer;
@@ -37,4 +57,35 @@ body {
 #score-container, #clicks-container {
     font-size: 28px;
     margin-top: 20px;
+}
+
+#menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 10px 0;
+}
+
+#menu button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#menu button:hover {
+    background-color: #777;
+}
+
+#farm button {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 10px 0;
+    cursor: pointer;
 }
